@@ -9,10 +9,9 @@ class Key {
     }
 };
 
-class Person {
-    private key: Key;
+class Person {    
 
-    constructor(key:Key) {
+    constructor(private key:Key) {
         this.key = key;
      }
     
@@ -42,7 +41,7 @@ abstract class House {
 class MyHouse extends House{
 
    openDoor(key: Key): boolean {
-        if (this.key === key) {
+        if (this.key.getSignature() === key.getSignature()) {
             this.door = true;
             return true;
        }             
